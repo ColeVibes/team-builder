@@ -156,3 +156,74 @@ function engineerQuestions() {
         }
     ])
 }
+
+function internQuestions() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: "What is your intern's name?",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter intern's name.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'number',
+            name: 'internId',
+            message: "What is your intern's id?",
+            validate: idNumber => {
+                if (idNumber) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter intern's id number.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: "What is your intern's email?",
+            validate: emailInput => {
+                if (emailInput.includes("@")) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter a valid email.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: "What is your intern's school?",
+            validate: schoolInput => {
+                if (schoolInput) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter intern's school.")
+                    return false;
+                }
+            }
+        }
+    ])
+}
+
+
+
+managerQuestions()
+    .then(answers => {
+        // create new manager object
+        let manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNum)
+        employees.push(manager)
+    })
+    // function call to prompt user to add team members 
+    .then(addTeamMember)
+
+
+    
