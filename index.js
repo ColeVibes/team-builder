@@ -65,3 +65,38 @@ function managerQuestions() {
         }
     ])
 }
+
+function addTeamMember() {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'teamMember',
+            message: "Which type of team member would you like to add?",
+            choices: ["Engineer", "Intern", "I don't want to add any more team members"],
+        }
+    ])
+        .then(answers => {
+            if (answers.teamMember === 'Engineer') {
+                engineerQuestions()
+                    .then(answers => {
+                        let engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub)
+                        employees.push(engineer)
+                        addTeamMember()
+                    })
+
+            } else if (answers.teamMember === "Intern") {
+                internQuestions()
+                    .then(answers => {
+                        let intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
+                        employees.push(intern)
+                        addTeamMember()
+                    })
+
+            } else {
+                console.log("Team profile page has been created! Check the dist folder.")
+                console.log(employees)
+                createTeam()
+            }
+        })
+}
+
