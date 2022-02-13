@@ -225,5 +225,12 @@ managerQuestions()
     // function call to prompt user to add team members 
     .then(addTeamMember)
 
-
+function createTeam() {
+    fs.writeFile("./dist/team-profile.html", generatePage(employees), (err) => {
+         if (err) throw err
+    })
     
+    fs.copyFile("./src/styles.css", "./dist/styles.css", (err) => {
+        if (err) throw err
+    })
+}
