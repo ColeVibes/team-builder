@@ -100,3 +100,59 @@ function addTeamMember() {
         })
 }
 
+function engineerQuestions() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: "What is your engineer's name?",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter engineer's name.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'number',
+            name: 'engineerId',
+            message: "What is your engineer's id? number",
+            validate: idNumber => {
+                if (idNumber) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter engineer's id number.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: "What is your engineer's email?",
+            validate: emailInput => {
+                if (emailInput.includes("@")) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter a valid email.")
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerGithub',
+            message: "What is your engineer's GitHub username?",
+            validate: githubInput => {
+                if (githubInput) {
+                    return true;
+                } else {
+                    console.log("\n" + "Please enter engineer's GitHub username.")
+                    return false;
+                }
+            }
+        }
+    ])
+}
