@@ -226,7 +226,7 @@ managerQuestions()
     .then(addTeamMember)
 
 function createTeam() {
-    fs.writeFile("./dist/team-profile.html", generatePage(employees), (err) => {
+    fs.writeFile("./dist/team-builder.html", generatePage(employees), (err) => {
          if (err) throw err
     })
     

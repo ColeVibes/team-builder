@@ -80,7 +80,7 @@ module.exports = templateData => {
                 <h1>My Team</h1>
             </div>
         </header>
-        <main class="body-content">
+        <main class="main-content">
            ${genTeam(templateData)}
         </main>
     </body>
