@@ -8,7 +8,7 @@ const genTeam = team => {
     <div class="card">
     <div class="card-header">
         <h2>${manager.getName()}</h2>
-        <h3>${manager.getRole()}</h3>
+        <h4>${manager.getRole()}</h4>
     </div>
     <div class="card-body">
         <p>ID: ${manager.getId()}</p>
@@ -24,7 +24,7 @@ const genTeam = team => {
     <div class="card">
     <div class="card-header">
         <h2>${engineer.getName()}</h2>
-        <h3>${engineer.getRole()}</h3>
+        <h4>${engineer.getRole()}</h4>
     </div>
     <div class="card-body">
         <p>ID: ${engineer.getId()}</p>
@@ -33,14 +33,14 @@ const genTeam = team => {
     </div>
     </div>`
     }
-
+ 
     // generates intern card
     const genInt = intern => {
         return `
     <div class="card">
     <div class="card-header">
         <h2>${intern.getName()}</h2>
-        <h3>${intern.getRole()}</h3>
+        <h4>${intern.getRole()}</h4>
     </div>
     <div class="card-body">
         <p>ID: ${intern.getId()}</p>
@@ -49,9 +49,9 @@ const genTeam = team => {
     </div>
     </div>`
     }
-
+  
     const employeeCards = []
-
+ 
     // grabs the employeeCards array and pushes each card into it
     employeeCards.push(team.filter(employee => employee.getRole() === "Manager").map(manager => genMan(manager)))
     employeeCards.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => genEng(engineer)))
@@ -72,7 +72,7 @@ module.exports = templateData => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Team Builder</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>

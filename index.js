@@ -8,7 +8,7 @@ const fs = require('fs');
 const generatePage = require('./src/template');
 
 const employees = [];
-
+  
 function managerQuestions() {
     return inquirer.prompt([
         {
@@ -64,8 +64,8 @@ function managerQuestions() {
             }
         }
     ])
-}
-
+} 
+ 
 function addTeamMember() {
     return inquirer.prompt([
         {
@@ -96,9 +96,9 @@ function addTeamMember() {
                 console.log("Team profile page has been created! Check the dist folder.")
                 console.log(employees)
                 createTeam()
-            }
+            } 
         })
-}
+} 
 
 function engineerQuestions() {
     return inquirer.prompt([
@@ -114,7 +114,7 @@ function engineerQuestions() {
                     return false;
                 }
             }
-        },
+        }, 
         {
             type: 'number',
             name: 'engineerId',
@@ -125,7 +125,7 @@ function engineerQuestions() {
                 } else {
                     console.log("\n" + "Please enter engineer's id number.")
                     return false;
-                }
+                }  
             }
         },
         {
@@ -151,7 +151,7 @@ function engineerQuestions() {
                 } else {
                     console.log("\n" + "Please enter engineer's GitHub username.")
                     return false;
-                }
+                }  
             }
         }
     ])
@@ -159,7 +159,7 @@ function engineerQuestions() {
 
 function internQuestions() {
     return inquirer.prompt([
-        {
+        { 
             type: 'input',
             name: 'internName',
             message: "What is your intern's name?",
@@ -172,7 +172,7 @@ function internQuestions() {
                 }
             }
         },
-        {
+        { 
             type: 'number',
             name: 'internId',
             message: "What is your intern's id?",
@@ -230,7 +230,7 @@ function createTeam() {
          if (err) throw err
     })
     
-    fs.copyFile("./src/styles.css", "./dist/styles.css", (err) => {
+    fs.copyFile("./src/style.css", "./dist/style.css", (err) => {
         if (err) throw err
     })
 }
