@@ -72,7 +72,7 @@ module.exports = templateData => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Team Profile</title>
+        <title>Team Builder</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -81,7 +81,7 @@ module.exports = templateData => {
                 <h1>My Team</h1>
             </div>
         </header>
-        <main class="main-content">
+        <main class="body-content">
            ${genTeam(templateData)}
         </main>
     </body>
