@@ -52,7 +52,6 @@ const genTeam = team => {
 
     const employeeCards = []
 
-    // the map method creates a new array with the content that is returned from the function. the function is called for every item in the array.
     // grabs the employeeCards array and pushes each card into it
     employeeCards.push(team.filter(employee => employee.getRole() === "Manager").map(manager => genMan(manager)))
     employeeCards.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => genEng(engineer)))
